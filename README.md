@@ -1,2 +1,2 @@
 # JuniorKnight
-Just some personal learning process about unity, trying to make a 2D game
+Just try to find a way to record some of my learning process about Unity.
