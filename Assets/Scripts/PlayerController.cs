@@ -6,12 +6,12 @@ public class PlayerController : MonoBehaviour
 {
     public float speed;
 
-    Animator animator;
+    // Animator animator;
     Vector3 movement;
     // Start is called before the first frame update
     void Start()
     {
-        animator = GetComponent<Animator>();
+        // animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame

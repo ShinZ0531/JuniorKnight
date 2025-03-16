@@ -5,12 +5,12 @@ public class PlayerController2D : MonoBehaviour
     // Public variables
     public float speed = 5f; // The speed at which the player moves
 
-    public bool canMoveDiagonally = false; // Controls whether the player can move diagonally
+    // public bool canMoveDiagonally = false; // Controls whether the player can move diagonally
 
     // Private variables 
     private Rigidbody2D rb; // Reference to the Rigidbody2D component attached to the player
     private Vector2 movement; // Stores the direction of player movement
-    private bool isMovingHorizontally = true; // Flag to track if the player is moving horizontally
+    // private bool isMovingHorizontally = true; // Flag to track if the player is moving horizontally
 
     void Start()
     {
@@ -26,38 +26,46 @@ public class PlayerController2D : MonoBehaviour
         float horizontalInput = Input.GetAxisRaw("Horizontal");
         float verticalInput = Input.GetAxisRaw("Vertical");
 
-        // Check if diagonal movement is allowed
-        if (canMoveDiagonally)
-        {
-            // Set movement direction based on input
-            movement = new Vector2(horizontalInput, verticalInput);
-            // Optionally rotate the player based on movement direction
-            // RotatePlayer(horizontalInput, verticalInput);
-        }
-        else
-        {
-            // Determine the priority of movement based on input
-            if (horizontalInput != 0)
-            {
-                isMovingHorizontally = true;
-            }
-            else if (verticalInput != 0)
-            {
-                isMovingHorizontally = false;
-            }
+        movement = new Vector2(horizontalInput, verticalInput);
 
-            // Set movement direction and optionally rotate the player
-            if (isMovingHorizontally)
-            {
-                movement = new Vector2(horizontalInput, 0);
-                RotatePlayer(horizontalInput, 0);
-            }
-            else
-            {
-                movement = new Vector2(0, verticalInput);
-                RotatePlayer(0, verticalInput);
-            }
-        }
+        if (movement.x > 0)//翻脸
+            transform.localScale = new Vector3(1, 1, 1);
+        if (movement.x < 0)
+            transform.localScale = new Vector3(-1, 1, 1);
+
+
+        // // Check if diagonal movement is allowed
+        // if (canMoveDiagonally)
+        // {
+        //     // Set movement direction based on input
+        //     movement = new Vector2(horizontalInput, verticalInput);
+        //     // Optionally rotate the player based on movement direction
+        //     // RotatePlayer(horizontalInput, verticalInput);
+        // }
+        // else
+        // {
+        //     // Determine the priority of movement based on input
+        //     if (horizontalInput != 0)
+        //     {
+        //         isMovingHorizontally = true;
+        //     }
+        //     else if (verticalInput != 0)
+        //     {
+        //         isMovingHorizontally = false;
+        //     }
+
+        //     // Set movement direction and optionally rotate the player
+        //     if (isMovingHorizontally)
+        //     {
+        //         movement = new Vector2(horizontalInput, 0);
+        //         RotatePlayer(horizontalInput, 0);
+        //     }
+        //     else
+        //     {
+        //         movement = new Vector2(0, verticalInput);
+        //         RotatePlayer(0, verticalInput);
+        //     }
+        // }
 
 
         // // Set movement direction based on input
