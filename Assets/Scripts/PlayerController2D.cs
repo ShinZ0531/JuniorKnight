@@ -12,6 +12,8 @@ public class PlayerController2D : MonoBehaviour
     private Vector2 movement; // Stores the direction of player movement
     // private bool isMovingHorizontally = true; // Flag to track if the player is moving horizontally
 
+    private bool canMove = true;
+
     void Start()
     {
         // Initialize the Rigidbody2D component
@@ -22,6 +24,9 @@ public class PlayerController2D : MonoBehaviour
 
     void Update()
     {
+        // If move is disabled, do not process player input
+        if (!canMove) return;
+
         // Get player input from keyboard or controller
         float horizontalInput = Input.GetAxisRaw("Horizontal");
         float verticalInput = Input.GetAxisRaw("Vertical");
@@ -89,5 +94,10 @@ public class PlayerController2D : MonoBehaviour
         float angle = Mathf.Atan2(y, x) * Mathf.Rad2Deg;
         // Apply the rotation to the player
         transform.rotation = Quaternion.Euler(0, 0, angle);
+    }
+
+    public void SetCanMove(bool value)
+    {
+        canMove = value;
     }
 }

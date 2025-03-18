@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TalkButton : MonoBehaviour
+public class MapButton : MonoBehaviour
 {
     public GameObject Button;
     public GameObject talkUI;
