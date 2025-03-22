@@ -21,8 +21,8 @@ public class SmallDialogSystem : MonoBehaviour
     private int index;
     private bool autoPlay = true;
     private bool isPlaying = false;
-    public delegate void ValueChanged(int newValue);
-    public static event ValueChanged OnValueChanged;
+    // public delegate void ValueChanged(int newValue);
+    // public static event ValueChanged OnValueChanged;
 
     List<string> textList = new List<string>();
 
